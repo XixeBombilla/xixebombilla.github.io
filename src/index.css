@@ -48,7 +48,7 @@ body {
 }
 
 .trailing-dot {
-  background-color: rgba(206, 250, 5, 0.6);
+  background-color: rgba(205, 250, 5, 0.6);
   transition: transform 0.1s ease-out;
 }
 
@@ -63,7 +63,7 @@ body {
     background-color: #ffffff;
   }
   a:hover {
-    color: var(--electric);
+    color: lighten(var(--current), 20);
   }
   button {
     background-color: #f9f9f9;

@@ -112,9 +112,10 @@ const badgeGroups = [
     title: "Currently Exploring",
     badges: [
       { title: "Web3" },
-      { title: "Bun" },
+      { title: "Bun", link: "https://bun.sh/" },
       { title: "Colyseus", link: "https://colyseus.io/framework/" },
       { title: "AI" },
+      { title: "qwik", link: "https://qwik.dev/" },
     ],
   },
 ];

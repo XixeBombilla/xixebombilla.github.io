@@ -46,12 +46,12 @@ function App() {
               </div>
             </Fragment>
           ))}
-          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
+          <h2 className="text-5xl lg:text-2xl font-bold font-mono mb-5 opacity-90">
             <a
               href="mailTo:gize.bonilla@gmail.com?subject=Let's Connect"
-              className="group hover:opacity-80 block"
+              className="group hover:opacity-80 block py-10"
             >
-              Let's connect, <br />
+              Let’s connect— <br className="hidden lg:block" />
               send me an email.
               <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-50 transition-all duration-500"></span>
             </a>
