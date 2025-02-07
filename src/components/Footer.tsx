@@ -29,13 +29,13 @@ const ElementIcon = (key: keyof typeof Icons) => {
  */
 const Footer = () => {
   return (
-    <nav className="flex lg:justify-end space-x-5 py-5 h-16 lg:pt-10">
+    <nav className="flex justify-center lg:justify-end space-x-5 py-5 h-20 lg:10 lg:pt-10">
       {contentFooter.map(({ key, link, label }) => (
         <a
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="h-20 w-20 dark:fill-white lg:h-8 lg:w-8 ml-10 lg:ml-2"
+          className="h-16 w-16 dark:fill-white lg:h-8 lg:w-8 mx-5 lg:ml-2"
           aria-label={label}
         >
           {ElementIcon(key)}

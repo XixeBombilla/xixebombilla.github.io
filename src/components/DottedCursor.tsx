@@ -33,12 +33,12 @@ const DottedCursor: React.FC = () => {
     <>
       {/* Main cursor dot */}
       <div
-        className="cursor-dot"
+        className="cursor-dot hidden lg:block"
         style={{ left: cursorPos.x, top: cursorPos.y }}
       />
 
       <div
-        className="trailing-dot"
+        className="trailing-dot hidden lg:block"
         style={{ left: trailingPos.x, top: trailingPos.y }}
       />
     </>

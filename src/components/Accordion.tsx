@@ -23,7 +23,7 @@ const Accordion = ({ title, children, date }: AccordionProps) => {
   const accordionId = title.replace(/\s/g, "").toLowerCase();
 
   return (
-    <div className="pt-20 lg:pt-4">
+    <div className="pt-10 lg:pt-4">
       <h2
         className={`accordion-header mb-0 hover:bg-electric-faded transition-all duration-500 ${
           isOpen && "bg-electric-faded"
@@ -31,14 +31,16 @@ const Accordion = ({ title, children, date }: AccordionProps) => {
         id={accordionId}
       >
         <button
-          className="group relative flex w-full flex-col lg:flex-row lg:items-center  lg:justify-between rounded-md lg:border-2 lg:border-electric-faded px-5 py-4 text-left text-base transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none"
+          className="group relative flex w-full flex-col lg:flex-row lg:items-center lg:justify-between rounded-md lg:border-2 lg:border-electric-faded px-5 py-4 text-left text-base transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none"
           type="button"
           aria-expanded={isOpen}
           onClick={handleClick}
         >
-          <span className="font-semibold text-6xl lg:text-base">{title}</span>
+          <span className="font-semibold text-2xl lg:text-6xl lg:text-base">
+            {title}
+          </span>
           <div className="flex justify-end">
-            <span className="font-mono text-5xl mt-10 lg:mt-0 lg:text-sm mr-5">
+            <span className="font-mono text-md lg:text-5xl mt-5 lg:mt-0 lg:text-sm mr-5">
               {date}
             </span>
             <span className="hidden lg:flex">
@@ -57,7 +59,7 @@ const Accordion = ({ title, children, date }: AccordionProps) => {
         } transition-all duration-500 visible`}
         aria-labelledby={accordionId}
       >
-        <div className="px-5 py-4 text-5xl/20 lg:text-lg">{children}</div>
+        <div className="lg:px-5 py-4 text-lg">{children}</div>
       </div>
     </div>
   );

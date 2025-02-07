@@ -8,14 +8,14 @@ import { contentAccordions } from "../helpers/contentPage";
  */
 const Experiences = () => {
   return (
-    <div className="opacity-80 ">
+    <div className="opacity-80">
       {contentAccordions.map(({ title, date, content, badges }) => (
         <Accordion key={`accordion-${title}`} title={title} date={date}>
           <p
             className="opacity-80"
             dangerouslySetInnerHTML={{ __html: content }}
           />
-          <div className="pt-15 lg:pt-5">
+          <div className="pt-5">
             {badges.map((badge) => (
               <Badge label={badge} />
             ))}
