@@ -13,7 +13,7 @@ interface BadgeProps {
  * @returns {JSX.Element} The rendered Badge component.
  */
 const Badge = ({ label, className = "", link = "" }: BadgeProps) => {
-  const badgeStyle = `bg-electric text-stone-950 uppercase rounded-full flex items-center px-4 lg:px-3 py-2 lg:py-1 text-[12px] font-bold inline-block mr-2 lg:mr-2 mb-4 ${className} ${
+  const badgeStyle = `bg-electric text-stone-950 uppercase rounded-full flex items-center px-4 lg:px-3 py-1 text-[12px] font-bold inline-block mr-2 lg:mr-2 mb-2 ${className} ${
     link ? "hover:bg-electric-faded hover:text-black" : ""
   }`;
 

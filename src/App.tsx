@@ -6,14 +6,18 @@ import useTypingEffect from "./hooks/typeEffect";
 import DottedCursor from "./components/DottedCursor";
 import Experiences from "./components/Experience";
 import Badge from "./components/Badge";
-// import Card from "./components/Card";
+import MediumFeed from "./components/Medium";
+import Project from "./components/Project";
 // Icons
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { ArrowUpRightIcon } from "@heroicons/react/16/solid";
 // Animations
 import animationHandUp from "./assets/handup.json";
 import Footer from "./components/Footer";
 // Content
 import { badgeGroups, contentAbout } from "./helpers/contentPage";
+
+const BUILT_WITH = ["Vite", "React", "TypeScript", "Lottie"];
 
 /**
  * Main application component.
@@ -75,18 +79,43 @@ function App() {
           </h2>
           <Experiences />
         </section>
-        {/* <section className="pt-10 lg:pt-20">
+        <section className="pt-10 lg:pt-20">
           <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
             Projects
             <span className="w-15 border border-2 border-electric block" />
           </h2>
-          <div className="flex flex-col">
-            <div className="bg-[url(./assets/hue.png)] bg-center hover:grayscale bg-scroll p-10 rounded-full"></div>
-            <h5 className="uppercase self-end text-md font-mono font-bold py-5">
-              The Hue Creatures Club
-            </h5>
-          </div>
-        </section> */}
+          <Project
+            title="The Hue Creatures Club"
+            description="A metaverse and unique NFT creatures community."
+            image="hue.png"
+            status="In Progress"
+            badges={["Web3", "React", "TypeScript", "Express", "Colyseus"]}
+            link="http://www.huecreatures.club/"
+          />
+        </section>
+        <MediumFeed />
+        <section className="pt-10 lg:pt-20">
+          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
+            Places I've Been
+            <span className="w-15 border border-2 border-electric block" />
+          </h2>
+          <ul>
+            <li>
+              <a
+                className="font-mono text-sm flex justify-between group relative"
+                href="https://www.youtube.com/watch?v=FU1zzOjF05s"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div>
+                  <span>La Previa, JSCONF Chile</span>
+                  <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-full transition-all duration-500"></span>
+                </div>
+                <ArrowUpRightIcon className="h-5 lg:h-6 inline-block fill-electric group-hover:mt-[-5px] lg:absolute lg:right-0" />
+              </a>
+            </li>
+          </ul>
+        </section>
         <div className="hidden lg:flex space-x-5 py-5 lg:fixed bottom-10 right-10 ">
           <Lottie
             animationData={animationHandUp}
@@ -95,9 +124,16 @@ function App() {
           />
         </div>
         <p className="font-mono text-center lg:text-end py-50 text-sm lg:text-sm">
-          Made with{" "}
-          <HeartIcon className="h-8 lg:h-6 inline-block fill-electric" />{" "}
-          {new Date().getFullYear()}.
+          <span>
+            Made with{" "}
+            <HeartIcon className="h-8 lg:h-6 inline-block fill-electric" />{" "}
+            {new Date().getFullYear()}.
+          </span>
+          <div className="mt-5">
+            {BUILT_WITH.map((badge) => (
+              <Badge label={badge} />
+            ))}
+          </div>
         </p>
       </div>
     </div>
