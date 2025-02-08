@@ -17,7 +17,7 @@ import Footer from "./components/Footer";
 // Content
 import { badgeGroups, contentAbout } from "./helpers/contentPage";
 
-const BUILT_WITH = ["Vite", "React", "TypeScript", "Lottie"];
+const BUILT_WITH = ["Vite", "React", "TypeScript", "Tailwind", "Lottie"];
 
 /**
  * Main application component.
