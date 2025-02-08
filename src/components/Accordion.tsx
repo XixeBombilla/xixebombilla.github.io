@@ -25,7 +25,7 @@ const Accordion = ({ title, children, date }: AccordionProps) => {
   return (
     <div className="pt-10 lg:pt-4">
       <h2
-        className={`accordion-header mb-0 hover:bg-electric-faded transition-all duration-500 ${
+        className={`mb-0 hover:bg-electric-faded transition-all duration-500 ${
           isOpen && "bg-electric-faded"
         }`}
         id={accordionId}

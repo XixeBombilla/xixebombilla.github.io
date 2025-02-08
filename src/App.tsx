@@ -69,18 +69,23 @@ function App() {
           ))}
         </section>
         <section className="pt-10 lg:pt-20">
-          <h2 className="text-2xl lg:text-7xl lg:text-4xl font-bold font-mono mb-5 opacity-90">
+          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
             Experience
-            <span className="w-20 border border-2 border-electric block"></span>
+            <span className="w-20 border border-2 border-electric block" />
           </h2>
           <Experiences />
         </section>
-        {/* <section className="py-20">
-          <h2 className="text-2xl lg:text-7xl lg:text-4xl font-bold font-mono mb-5 opacity-90">
+        {/* <section className="pt-10 lg:pt-20">
+          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
             Projects
-            <span className="w-20 border border-2 border-electric block"></span>
+            <span className="w-15 border border-2 border-electric block" />
           </h2>
-          <Card />
+          <div className="flex flex-col">
+            <div className="bg-[url(./assets/hue.png)] bg-center hover:grayscale bg-scroll p-10 rounded-full"></div>
+            <h5 className="uppercase self-end text-md font-mono font-bold py-5">
+              The Hue Creatures Club
+            </h5>
+          </div>
         </section> */}
         <div className="hidden lg:flex space-x-5 py-5 lg:fixed bottom-10 right-10 ">
           <Lottie
@@ -92,7 +97,7 @@ function App() {
         <p className="font-mono text-center lg:text-end py-50 text-sm lg:text-sm">
           Made with{" "}
           <HeartIcon className="h-8 lg:h-6 inline-block fill-electric" />{" "}
-          {new Date().getFullYear()} (V1).
+          {new Date().getFullYear()}.
         </p>
       </div>
     </div>
