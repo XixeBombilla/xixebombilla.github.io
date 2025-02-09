@@ -17,7 +17,7 @@ const Experiences = () => {
           />
           <div className="pt-5">
             {badges.map((badge) => (
-              <Badge label={badge} />
+              <Badge key={`experience-${title}-${badge}`} label={badge} />
             ))}
           </div>
         </Accordion>

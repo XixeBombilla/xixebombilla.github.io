@@ -30,19 +30,19 @@ const MediumFeed = () => {
         <span className="w-15 border border-2 border-electric block" />
       </h2>
       <ul>
-        {articles.map((article: ArticleProps) => (
-          <li key={article.guid}>
+        {articles.map(({ guid, link, title }: ArticleProps) => (
+          <li key={guid}>
             <a
               className="font-mono text-sm flex justify-between group relative"
-              href={article.link}
+              href={link}
               target="_blank"
               rel="noopener noreferrer"
             >
               <div>
-                <span>{article.title}</span>
+                <span>{title}</span>
                 <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-full transition-all duration-500"></span>
               </div>
-              <ArrowUpRightIcon className="h-5 lg:h-6 inline-block fill-electric group-hover:mt-[-5px] lgLabsolute lg:right-0" />
+              <ArrowUpRightIcon className="h-5 lg:h-6 inline-block fill-electric group-hover:mr-[-5px] lg:absolute lg:right-0" />
             </a>
           </li>
         ))}

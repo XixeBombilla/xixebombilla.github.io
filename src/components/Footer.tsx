@@ -32,6 +32,7 @@ const Footer = () => {
     <nav className="flex justify-center lg:justify-end space-x-5 py-5 h-20 lg:10 lg:pt-10">
       {contentFooter.map(({ key, link, label }) => (
         <a
+          key={`footer-${label}`}
           href={link}
           target="_blank"
           rel="noopener noreferrer"

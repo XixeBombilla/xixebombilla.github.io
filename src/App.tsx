@@ -10,7 +10,7 @@ import MediumFeed from "./components/Medium";
 import Project from "./components/Project";
 // Icons
 import { HeartIcon } from "@heroicons/react/24/outline";
-import { ArrowUpRightIcon } from "@heroicons/react/16/solid";
+import { ArrowUpRightIcon, EnvelopeIcon } from "@heroicons/react/16/solid";
 // Animations
 import animationHandUp from "./assets/handup.json";
 import Footer from "./components/Footer";
@@ -45,28 +45,30 @@ function App() {
               </h4>
               <div className="pb-5 lg:pb-10 w-full lg:w-[300px]">
                 {badges.map(({ title, link }) => (
-                  <Badge label={title} link={link} />
+                  <Badge key={title} label={title} link={link} />
                 ))}
               </div>
             </Fragment>
           ))}
-          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
+          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90 flex justify-start items-start py-5 flex-col ">
             <a
               href="mailTo:gize.bonilla@gmail.com?subject=Let's Connect"
-              className="group hover:opacity-80 block py-5"
+              className="group hover:opacity-80 block"
             >
               Let’s connect— <br className="hidden lg:block" />
               send me an email.
               <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-50 transition-all duration-500"></span>
             </a>
+            <EnvelopeIcon className="h-8 lg:h8 fill-electric" />
           </h2>
         </div>
       </section>
       <div className="mb-60">
         <Footer />
         <section className="opacity-80 pt-10 lg:pt-30">
-          {contentAbout.map((paragraph) => (
+          {contentAbout.map((paragraph, idx) => (
             <p
+              key={`content-${idx}`}
               className="py-5 tracking-wide text-lg/10 lg:text-lg"
               dangerouslySetInnerHTML={{ __html: paragraph }}
             />
@@ -111,7 +113,7 @@ function App() {
                   <span>La Previa, JSCONF Chile</span>
                   <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-full transition-all duration-500"></span>
                 </div>
-                <ArrowUpRightIcon className="h-5 lg:h-6 inline-block fill-electric group-hover:mt-[-5px] lg:absolute lg:right-0" />
+                <ArrowUpRightIcon className="h-5 lg:h-6 inline-block fill-electric group-hover:mr-[-5px] lg:absolute lg:right-0" />
               </a>
             </li>
           </ul>
@@ -123,18 +125,18 @@ function App() {
             className="w-20"
           />
         </div>
-        <p className="font-mono text-center lg:text-end py-50 text-sm lg:text-sm">
-          <span>
+        <div className="font-mono text-center lg:text-end py-50 text-sm lg:text-sm">
+          <p>
             Made with{" "}
             <HeartIcon className="h-8 lg:h-6 inline-block fill-electric" />{" "}
             {new Date().getFullYear()}.
-          </span>
+          </p>
           <div className="mt-5">
             {BUILT_WITH.map((badge) => (
-              <Badge label={badge} />
+              <Badge key={`build-${badge}`} label={badge} />
             ))}
           </div>
-        </p>
+        </div>
       </div>
     </div>
   );

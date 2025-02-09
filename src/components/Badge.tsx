@@ -2,6 +2,7 @@ interface BadgeProps {
   label: string;
   className?: string;
   link?: string;
+  small?: boolean;
 }
 
 /**
@@ -12,10 +13,17 @@ interface BadgeProps {
  * @param {string} [props.link] - Optional link URL. If provided, the badge will be rendered as a link.
  * @returns {JSX.Element} The rendered Badge component.
  */
-const Badge = ({ label, className = "", link = "" }: BadgeProps) => {
-  const badgeStyle = `bg-electric text-stone-950 uppercase rounded-full flex items-center px-4 lg:px-3 py-1 text-[12px] font-bold inline-block mr-2 lg:mr-2 mb-2 ${className} ${
+const Badge = ({
+  label,
+  className = "",
+  link = "",
+  small = false,
+}: BadgeProps) => {
+  const badgeStyle = `bg-electric text-stone-950 uppercase rounded-full flex items-center px-4 lg:px-3 py-1 ${
+    small ? "lg:text-[10px]" : "lg:text-[12px]"
+  } font-bold inline-block mr-2 lg:mr-2 mb-2 ${className} ${
     link ? "hover:bg-electric-faded hover:text-black" : ""
-  }`;
+  } text-[12px]`;
 
   return link.length ? (
     <a
