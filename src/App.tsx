@@ -35,7 +35,7 @@ function App() {
           <h2 className="text-3xl pt-5 lg:text-2xl italic lg:pt-0">
             Full-Stack Engineer & Coffee lover.
           </h2>
-          <h3 className="text-2xl/10 pt-10 lg:pt-5 opacity-80 pb-10 lg:text-lg font-mono">
+          <h3 className="text-2xl/10 pt-10 lg:pt-5 opacity-90 pb-10 lg:text-lg font-mono">
             Crafting experiences that bring ideas to life.
           </h3>
           {badgeGroups.map(({ title, badges }, index) => (
@@ -53,7 +53,7 @@ function App() {
           <h2 className="text-2xl font-bold font-mono mb-5 opacity-90 flex justify-start items-start py-5 flex-col ">
             <a
               href="mailTo:gize.bonilla@gmail.com?subject=Let's Connect"
-              className="group hover:opacity-80 block"
+              className="group hover:opacity-90 block"
             >
               Let’s connect— <br className="hidden lg:block" />
               send me an email.
@@ -65,7 +65,7 @@ function App() {
       </section>
       <div className="mb-60">
         <Footer />
-        <section className="opacity-80 pt-10 lg:pt-30">
+        <section className="opacity-90 pt-10 lg:pt-30">
           {contentAbout.map((paragraph, idx) => (
             <p
               key={`content-${idx}`}
@@ -89,7 +89,7 @@ function App() {
           <Project
             title="The Hue Creatures Club"
             description="A metaverse and unique NFT creatures community."
-            image="hue.png"
+            image="hue.webp"
             status="In Progress"
             badges={["Web3", "React", "TypeScript", "Express", "Colyseus"]}
             link="http://www.huecreatures.club/"

@@ -47,9 +47,9 @@ const Project = ({
         </div>
       </div>
       <section className="flex flex-col items-start lg:items-end lg:py-5 pt-5">
-        <h5 className="uppercase text-md font-mono font-bold self-top">
+        <h1 className="uppercase text-md font-mono font-bold self-top">
           {title}
-        </h5>
+        </h1>
         <span className="italic text-sm font-mono">{status}</span>
         <div className="block lg:hidden">
           <p>{description}</p>

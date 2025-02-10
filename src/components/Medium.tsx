@@ -33,7 +33,7 @@ const MediumFeed = () => {
         {articles.map(({ guid, link, title }: ArticleProps) => (
           <li key={guid}>
             <a
-              className="font-mono text-sm flex justify-between group relative"
+              className="font-mono text-sm flex justify-between group relative p-5"
               href={link}
               target="_blank"
               rel="noopener noreferrer"
