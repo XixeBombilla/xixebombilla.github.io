@@ -20,8 +20,7 @@ This is my **personal portfolio** showcasing my work as a **Full-Stack Engineer*
 
 ✅ **Fully responsive** – Optimized for both desktop and mobile  
 ✅ **Dark mode support** (if applicable)  
-✅ **Performance-focused** – Optimized images, lazy loading, and fast rendering  
-✅ **Modern UI** – Styled with Tailwind CSS  
-✅ **CI/CD** – Automatically deployed using GitHub Actions
+✅ **Performance-focused** – Optimized images and fast rendering  
+✅ **Modern UI** – Styled with Tailwind CSS
 
 ---
