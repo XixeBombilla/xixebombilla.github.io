@@ -70,8 +70,7 @@ function App() {
               aria-label="Get to know me better."
               className="group hover:opacity-90 block mb-5"
             >
-              Wanna see something cool
-              <br className="hidden lg:block" />
+              Wanna see something cool <br className="hidden lg:block" />
               and get to know me better?
               <br className="hidden lg:block" /> — Click here.
               <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-50 transition-all duration-500"></span>

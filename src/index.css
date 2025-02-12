@@ -69,4 +69,13 @@ body {
   button {
     background-color: #f9f9f9;
   }
+  .svg-background-fill {
+    fill: #242424;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .svg-background-fill {
+    fill: #fff;
+  }
 }
