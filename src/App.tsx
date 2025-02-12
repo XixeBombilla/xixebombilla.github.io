@@ -11,6 +11,7 @@ import Project from "./components/Project";
 // Icons
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { ArrowUpRightIcon, EnvelopeIcon } from "@heroicons/react/16/solid";
+import AllUpIcon from "./icons/AllUp";
 // Animations
 import animationHandUp from "./assets/handup.json";
 import Footer from "./components/Footer";
@@ -50,17 +51,33 @@ function App() {
               </div>
             </Fragment>
           ))}
-          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90 flex justify-start items-start py-5 flex-col ">
+          <h4 className="text-2xl font-bold font-mono mb-5 opacity-90 flex justify-start items-start py-5 flex-col ">
             <a
               href="mailTo:gize.bonilla@gmail.com?subject=Let's Connect"
               className="group hover:opacity-90 block"
             >
-              Let’s connect— <br className="hidden lg:block" />
+              Let's connect— <br className="hidden lg:block" />
               send me an email.
               <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-50 transition-all duration-500"></span>
             </a>
             <EnvelopeIcon className="h-8 lg:h8 fill-electric" />
-          </h2>
+          </h4>
+          <div className="text-md font-bold font-mono mb-5 opacity-90 flex justify-start items-start py-5 flex-col">
+            <a
+              href="https://allup.world/user:ec9a5e7f-184f-4fb5-a03d-44f21f8cadcc"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Get to know me better."
+              className="group hover:opacity-90 block mb-5"
+            >
+              Wanna see something cool
+              <br className="hidden lg:block" />
+              and get to know me better?
+              <br className="hidden lg:block" /> — Click here.
+              <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-50 transition-all duration-500"></span>
+            </a>
+            <AllUpIcon />
+          </div>
         </div>
       </section>
       <div className="mb-60">
@@ -93,6 +110,14 @@ function App() {
             status="In Progress"
             badges={["Web3", "React", "TypeScript", "Express", "Colyseus"]}
             link="http://www.huecreatures.club/"
+          />
+          <Project
+            title="A11yEclipse"
+            description="A sleek and accessible dark theme for VSCode."
+            image="a11y.webp"
+            status="Published"
+            badges={["Yeoman", "VSCode"]}
+            link="https://marketplace.visualstudio.com/items?itemName=GizeBonilla.a11yeclipse"
           />
         </section>
         <MediumFeed />

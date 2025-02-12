@@ -85,7 +85,6 @@ const contentFooter: {
     link: "https://www.instagram.com/xixebombilla/",
     label: "Go to Instagram",
   },
-
   { key: "x", link: "https://x.com/gizebonillam", label: "Go to X" },
 ];
 
