@@ -64,7 +64,7 @@ const contentAccordions = [
   {
     title: "UI/UX Frontend Lead @ Nebula Ideas",
     subtitle: "Co-Founder",
-    date: "Jul 2015 - Jan 2019",
+    date: "Jul 2010 - Jan 2016",
     content: `
       I worked closely with <span class="font-bold">multiple small businesses</span> to <span class="font-bold">design and develop customized applications</span> tailored to their unique needs. From <span class="font-bold">healthcare to e-commerce and retail</span>, 
       I collaborated with teams to <span class="font-bold">build intuitive, scalable solutions</span> that streamlined operations and <span class="font-bold">improved user experiences.</span> By <span class="font-bold">leading both the design and engineering efforts</span>, 
