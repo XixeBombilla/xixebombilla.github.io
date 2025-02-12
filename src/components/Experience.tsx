@@ -9,8 +9,13 @@ import { contentAccordions } from "../helpers/contentPage";
 const Experiences = () => {
   return (
     <div className="opacity-90">
-      {contentAccordions.map(({ title, date, content, badges }) => (
-        <Accordion key={`accordion-${title}`} title={title} date={date}>
+      {contentAccordions.map(({ title, date, content, badges, subtitle }) => (
+        <Accordion
+          key={`accordion-${title}`}
+          title={title}
+          date={date}
+          subtitle={subtitle}
+        >
           <p dangerouslySetInnerHTML={{ __html: content }} />
           <div className="pt-5">
             {badges.map((badge) => (
@@ -19,6 +24,17 @@ const Experiences = () => {
           </div>
         </Accordion>
       ))}
+      <br />
+      <a
+        className="font-mono italic text-sm group"
+        href="/files/resume_gize.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Gize's Resume"
+      >
+        My <span className="font-bold">resume</span> for more details.
+        <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-50 transition-all duration-500"></span>
+      </a>
     </div>
   );
 };

@@ -7,6 +7,7 @@ interface AccordionProps {
   title: string;
   date?: string;
   children: ReactNode;
+  subtitle?: string;
 }
 
 /**
@@ -17,7 +18,12 @@ interface AccordionProps {
  * @param {ReactNode} props.children - The content to display inside the accordion.
  * @returns {JSX.Element} The rendered Accordion component.
  */
-const Accordion = ({ title, children, date }: AccordionProps) => {
+const Accordion = ({
+  title,
+  children,
+  date,
+  subtitle = "",
+}: AccordionProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => setIsOpen(!isOpen);
   const accordionId = title.replace(/\s/g, "").toLowerCase();
@@ -36,9 +42,14 @@ const Accordion = ({ title, children, date }: AccordionProps) => {
           aria-expanded={isOpen}
           onClick={handleClick}
         >
-          <span className="font-semibold text-2xl lg:text-6xl lg:text-base">
-            {title}
-          </span>
+          <div>
+            <h3 className="font-semibold text-2xl lg:text-6xl lg:text-base">
+              {title}
+            </h3>
+            {subtitle && (
+              <h4 className="italic font-mono text-sm">{subtitle}</h4>
+            )}
+          </div>
           <div className="flex justify-end">
             <span className="font-mono text-md lg:text-5xl mt-5 lg:mt-0 lg:text-sm mr-5">
               {date}
