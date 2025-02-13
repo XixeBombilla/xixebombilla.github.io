@@ -4,23 +4,13 @@ import LinkedinIcon from "../icons/Linkedin";
 import XIcon from "../icons/X";
 //  Content
 import { contentFooter } from "../helpers/contentPage";
+import { createElement } from "react";
 
 const Icons = {
   github: GithubIcon,
   linkedin: LinkedinIcon,
   instagram: InstagramIcon,
   x: XIcon,
-};
-
-/**
- * Renders the appropriate icon based on the provided key.
- * @param {keyof typeof Icons} key - The key of the icon to render.
- * @returns {JSX.Element} The rendered icon component.
- */
-const ElementIcon = (key: keyof typeof Icons) => {
-  const ElementIcon = Icons[key];
-
-  return <ElementIcon />;
 };
 
 /**
@@ -39,7 +29,7 @@ const Footer = () => {
           className="h-16 w-16 dark:fill-white lg:h-8 lg:w-8 mx-5 lg:ml-2"
           aria-label={label}
         >
-          {ElementIcon(key)}
+          {createElement(Icons[key])}
         </a>
       ))}
     </nav>
