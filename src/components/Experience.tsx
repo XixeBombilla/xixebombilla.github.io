@@ -2,12 +2,13 @@ import Accordion from "./Accordion";
 import Badge from "./Badge";
 import { contentAccordions } from "../helpers/contentPage";
 import { sanitizeText } from "../helpers/sanitizeText";
+import { JSX } from "react";
 
 /**
  * Experiences component that displays a list of job experiences using Accordion components.
  * @returns {JSX.Element} The rendered Experiences component.
  */
-const Experiences = () => {
+const Experiences = (): JSX.Element => {
   return (
     <div className="opacity-90">
       {contentAccordions.map(({ title, date, content, badges, subtitle }) => (

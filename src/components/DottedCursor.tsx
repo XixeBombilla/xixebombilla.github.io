@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, JSX } from "react";
 
 /**
  * DottedCursor component that renders a custom cursor with a trailing effect.
  * @returns {JSX.Element} The rendered DottedCursor component.
  */
-const DottedCursor: React.FC = () => {
+const DottedCursor: React.FC = (): JSX.Element => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [trailingPos, setTrailingPos] = useState({ x: 0, y: 0 });
 

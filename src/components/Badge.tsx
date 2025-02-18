@@ -1,3 +1,4 @@
+import { JSX } from "react";
 interface BadgeProps {
   label: string;
   className?: string;
@@ -18,7 +19,7 @@ const Badge = ({
   className = "",
   link = "",
   small = false,
-}: BadgeProps) => {
+}: BadgeProps): JSX.Element => {
   const badgeStyle = `bg-electric text-stone-950 uppercase rounded-full flex items-center px-4 lg:px-3 py-1 ${
     small ? "lg:text-[10px]" : "lg:text-[12px]"
   } font-bold inline-block mr-2 lg:mr-2 mb-2 ${className} ${

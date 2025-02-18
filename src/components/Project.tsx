@@ -10,6 +10,17 @@ interface ProjectProps {
   link: string;
 }
 
+/**
+ * Project component that displays a project with an image, title, description, badges, status, and link.
+ * @param {ProjectProps} props - The props for the Project component.
+ * @param {string} props.image - The image for the project.
+ * @param {string} props.title - The title of the project.
+ * @param {string} props.description - The description of the project.
+ * @param {string[]} props.badges - The badges for the project.
+ * @param {string} props.status - The status of the project.
+ * @param {string} props.link - The link to the project.
+ * @returns {JSX.Element} The rendered Project component.
+ */
 const Project = ({
   image,
   title,

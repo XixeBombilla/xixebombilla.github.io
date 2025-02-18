@@ -5,7 +5,7 @@ import XIcon from "../icons/X";
 import MediumIcon from "../icons/Medium";
 //  Content
 import { contentFooter } from "../helpers/contentPage";
-import { createElement } from "react";
+import { createElement, JSX } from "react";
 
 const Icons = {
   github: GithubIcon,
@@ -19,7 +19,7 @@ const Icons = {
  * Footer component that renders a navigation bar with social media icons.
  * @returns {JSX.Element} The rendered component.
  */
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <nav className="flex justify-center lg:justify-end space-x-5 py-5 h-20 lg:10 lg:pt-10">
       {contentFooter.map(({ key, link, label }) => (

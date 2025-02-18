@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
 
-import { ReactNode } from "react";
+import { ReactNode, JSX } from "react";
 
 interface AccordionProps {
   title: string;
@@ -23,7 +23,7 @@ const Accordion = ({
   children,
   date,
   subtitle = "",
-}: AccordionProps) => {
+}: AccordionProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => setIsOpen(!isOpen);
   const accordionId = title.replace(/\s/g, "").toLowerCase();

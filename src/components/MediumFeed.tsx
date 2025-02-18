@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import { ArrowUpRightIcon } from "@heroicons/react/16/solid";
 
 interface ArticleProps {
@@ -7,7 +7,11 @@ interface ArticleProps {
   title: string;
 }
 
-const MediumFeed = () => {
+/**
+ *
+ * @returns {JSX.Element} The rendered MediumFeed component.
+ */
+const MediumFeed = (): JSX.Element => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {

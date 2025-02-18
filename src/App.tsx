@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, JSX } from "react";
 import Lottie from "lottie-react";
 // Hooks
 import useTypingEffect from "./hooks/typeEffect";
@@ -6,7 +6,7 @@ import useTypingEffect from "./hooks/typeEffect";
 import DottedCursor from "./components/DottedCursor";
 import Experiences from "./components/Experience";
 import Badge from "./components/Badge";
-import MediumFeed from "./components/Medium";
+import MediumFeed from "./components/MediumFeed";
 import Project from "./components/Project";
 // Icons
 import { HeartIcon } from "@heroicons/react/24/outline";
@@ -20,13 +20,19 @@ import { badgeGroups, contentAbout } from "./helpers/contentPage";
 //  Helpers
 import { sanitizeText } from "./helpers/sanitizeText";
 
-const BUILT_WITH = ["Vite", "React", "TypeScript", "Tailwind", "Lottie"];
+const BUILT_WITH = Object.freeze([
+  "Vite",
+  "React",
+  "TypeScript",
+  "Tailwind",
+  "Lottie",
+]);
 
 /**
  * Main application component.
  * @returns {JSX.Element} The rendered component.
  */
-function App() {
+function App(): JSX.Element {
   return (
     <div className="lg:relative grid grid-cols-1 lg:grid-cols-2 gap-2 w-full lg:w-7xl lg:mx-auto h-screen py-12 px-10 lg:px-10">
       <DottedCursor />
