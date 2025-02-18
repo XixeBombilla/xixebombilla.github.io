@@ -85,7 +85,7 @@ const contentAccordions = [
 ];
 
 const contentFooter: {
-  key: "github" | "linkedin" | "instagram" | "x";
+  key: "github" | "linkedin" | "instagram" | "x" | "medium";
   link: string;
   label?: string;
 }[] = [
@@ -107,6 +107,11 @@ const contentFooter: {
     label: "Go to Instagram",
   },
   { key: "x", link: "https://x.com/gizebonillam", label: "Go to X" },
+  {
+    key: "medium",
+    link: "https://medium.com/@gize.bonilla",
+    label: "Go to Medium",
+  },
 ];
 
 const badgeGroups = [

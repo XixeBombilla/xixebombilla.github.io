@@ -2,6 +2,7 @@ import GithubIcon from "../icons/Github";
 import InstagramIcon from "../icons/Instagram";
 import LinkedinIcon from "../icons/Linkedin";
 import XIcon from "../icons/X";
+import MediumIcon from "../icons/Medium";
 //  Content
 import { contentFooter } from "../helpers/contentPage";
 import { createElement } from "react";
@@ -11,6 +12,7 @@ const Icons = {
   linkedin: LinkedinIcon,
   instagram: InstagramIcon,
   x: XIcon,
+  medium: MediumIcon,
 };
 
 /**

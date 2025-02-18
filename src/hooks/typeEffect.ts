@@ -23,7 +23,7 @@ const useTypeEffect = (text: string, delay: number, wait: number) => {
     }, delay);
 
     return () => clearTimeout(timeoutId);
-  }, [index, waitAnimation]);
+  }, [index, waitAnimation, delay, displayedText, text]);
 
   return displayedText.join("");
 };
