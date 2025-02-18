@@ -17,6 +17,8 @@ import animationHandUp from "./assets/handup.json";
 import Footer from "./components/Footer";
 // Content
 import { badgeGroups, contentAbout } from "./helpers/contentPage";
+//  Helpers
+import { sanitizeText } from "./helpers/sanitizeText";
 
 const BUILT_WITH = ["Vite", "React", "TypeScript", "Tailwind", "Lottie"];
 
@@ -86,7 +88,7 @@ function App() {
             <p
               key={`content-${idx}`}
               className="py-5 tracking-wide text-lg/10 lg:text-lg"
-              dangerouslySetInnerHTML={{ __html: paragraph }}
+              dangerouslySetInnerHTML={{ __html: sanitizeText(paragraph) }}
             />
           ))}
         </section>

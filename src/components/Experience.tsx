@@ -1,6 +1,7 @@
 import Accordion from "./Accordion";
 import Badge from "./Badge";
 import { contentAccordions } from "../helpers/contentPage";
+import { sanitizeText } from "../helpers/sanitizeText";
 
 /**
  * Experiences component that displays a list of job experiences using Accordion components.
@@ -16,7 +17,7 @@ const Experiences = () => {
           date={date}
           subtitle={subtitle}
         >
-          <p dangerouslySetInnerHTML={{ __html: content }} />
+          <p dangerouslySetInnerHTML={{ __html: sanitizeText(content) }} />
           <div className="pt-5">
             {badges.map((badge) => (
               <Badge key={`experience-${title}-${badge}`} label={badge} />
