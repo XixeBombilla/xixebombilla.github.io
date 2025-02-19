@@ -46,8 +46,8 @@ const Project = ({
         <div className="opacity-0 hover:opacity-100 backdrop-grayscale-500 rounded-full transition-all duration-400 p-10 lg:p-5">
           <div className="bg-stone-950 w-full h-full items-center rounded-full p-5 justify-between hidden lg:flex">
             <div className="flex flex-col">
-              <p className="text-white ml-2">{description}</p>
-              <div className="mt-2 ml-2">
+              <p className="text-white ml-5">{description}</p>
+              <div className="mt-2 ml-5">
                 {badges.map((badge) => (
                   <Badge key={`project-${badge}`} label={badge} small />
                 ))}

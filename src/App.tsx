@@ -126,6 +126,14 @@ function App(): JSX.Element {
             badges={["Yeoman", "VSCode"]}
             link="https://marketplace.visualstudio.com/items?itemName=GizeBonilla.a11yeclipse"
           />
+          <Project
+            title="AutoJSDoc CLI"
+            description="CLI tool to automatically generate JSDoc comments."
+            image="autojsdoc.webp"
+            status="Published"
+            badges={["NPM", "JS"]}
+            link="https://www.npmjs.com/package/autojsdoc"
+          />
         </section>
         <MediumFeed />
         <section className="pt-10 lg:pt-20">
