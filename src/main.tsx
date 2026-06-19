@@ -1,5 +1,10 @@
-import { ViteReactSSG } from "vite-react-ssg/single-page";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 
-export const createRoot = ViteReactSSG(<App />);
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
