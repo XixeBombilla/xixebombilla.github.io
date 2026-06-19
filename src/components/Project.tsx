@@ -1,5 +1,4 @@
-import Badge from "./Badge";
-import { ArrowUpRightIcon } from "@heroicons/react/16/solid";
+import { JSX } from "react";
 
 interface ProjectProps {
   image: string;
@@ -8,19 +7,12 @@ interface ProjectProps {
   badges: string[];
   status: string;
   link: string;
+  tint?: string;
 }
 
-/**
- * Project component that displays a project with an image, title, description, badges, status, and link.
- * @param {ProjectProps} props - The props for the Project component.
- * @param {string} props.image - The image for the project.
- * @param {string} props.title - The title of the project.
- * @param {string} props.description - The description of the project.
- * @param {string[]} props.badges - The badges for the project.
- * @param {string} props.status - The status of the project.
- * @param {string} props.link - The link to the project.
- * @returns {JSX.Element} The rendered Project component.
- */
+const statusColor = (s: string) =>
+  s === "Published" ? "#2f7d52" : s === "In Progress" ? "#b07d12" : "#8b9ba0";
+
 const Project = ({
   image,
   title,
@@ -28,53 +20,117 @@ const Project = ({
   badges,
   status,
   link,
-}: ProjectProps) => {
-  const backgroundStyle = {
-    backgroundImage: `url(/images/${image})`,
-  };
-
-  const imageStyle = `bg-center bg-scroll rounded-full`;
-  const linkElement = (
-    <a href={link} target="_blank" rel="noopener noreferrer" aria-label={title}>
-      <ArrowUpRightIcon className="h-10 lg:h-8 inline-block fill-electric hover:pb-[2px] right-0 transition-all px-5" />
-    </a>
-  );
-
+  tint = "#a8b0a0",
+}: ProjectProps): JSX.Element => {
   return (
-    <div className="flex flex-col pt-5">
-      <div className={`${imageStyle}`} style={backgroundStyle}>
-        <div className="opacity-0 hover:opacity-100 backdrop-grayscale-500 rounded-full transition-all duration-400 p-10 lg:p-5">
-          <div className="bg-stone-950 w-full h-full items-center rounded-full p-5 justify-between hidden lg:flex">
-            <div className="flex flex-col">
-              <p className="text-white ml-5">{description}</p>
-              <div className="mt-2 ml-5">
-                {badges.map((badge) => (
-                  <Badge key={`project-${badge}`} label={badge} small />
-                ))}
-              </div>
-            </div>
-            {linkElement}
-          </div>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={title}
+      style={{
+        textDecoration: "none",
+        border: "1px solid #eceee8",
+        borderRadius: 16,
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        background: "#fff",
+        transition: "transform .18s, box-shadow .18s, border-color .18s",
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget as HTMLAnchorElement;
+        el.style.transform = "translateY(-3px)";
+        el.style.boxShadow = "0 14px 30px -16px rgba(22,36,46,0.28)";
+        el.style.borderColor = "#d7dad2";
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget as HTMLAnchorElement;
+        el.style.transform = "";
+        el.style.boxShadow = "";
+        el.style.borderColor = "#eceee8";
+      }}
+    >
+      <div
+        role="img"
+        aria-label={title}
+        style={{
+          aspectRatio: "16/9",
+          backgroundImage: `url(/images/${image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: tint,
+          display: "flex",
+          alignItems: "flex-end",
+          padding: 14,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 11,
+            color: "#16242e",
+            background: "rgba(255,255,255,0.82)",
+            padding: "3px 8px",
+            borderRadius: 5,
+          }}
+        >
+          {title}
+        </span>
+      </div>
+
+      <div style={{ padding: "18px 18px 20px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+          <h3
+            style={{
+              fontFamily: "'Space Grotesk', system-ui, sans-serif",
+              fontSize: 17,
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
+              margin: 0,
+              color: "#16242e",
+            }}
+          >
+            {title}
+          </h3>
+          <span
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 11,
+              color: statusColor(status),
+              border: `1px solid ${statusColor(status)}`,
+              padding: "2px 7px",
+              borderRadius: 20,
+              whiteSpace: "nowrap",
+            }}
+          >
+            {status}
+          </span>
+        </div>
+
+        <p style={{ fontSize: 14, lineHeight: 1.55, color: "#5d6b72", margin: "9px 0 0" }}>
+          {description}
+        </p>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
+          {badges.map((b) => (
+            <span
+              key={b}
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 11,
+                color: "#5d6b72",
+                background: "#f4f6ef",
+                padding: "3px 8px",
+                borderRadius: 5,
+              }}
+            >
+              {b}
+            </span>
+          ))}
         </div>
       </div>
-      <section className="flex flex-col items-start lg:items-end lg:py-5 pt-5">
-        <h1 className="uppercase text-md font-mono font-bold self-top">
-          {title}
-        </h1>
-        <span className="italic text-sm font-mono">{status}</span>
-        <div className="block lg:hidden">
-          <p>{description}</p>
-          <div className="flex justify-between">
-            <div className="mt-5">
-              {badges.map((badge) => (
-                <Badge key={`projectm-${badge}`} label={badge} />
-              ))}
-            </div>
-            {linkElement}
-          </div>
-        </div>
-      </section>
-    </div>
+    </a>
   );
 };
 

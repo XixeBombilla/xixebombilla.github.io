@@ -1,81 +1,54 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  --electric: #cefa05;
-  --electric-faded: #cdfa0533;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   padding: 0;
-  cursor: none;
+  background: #fff;
+  color: #16242e;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: var(--electric-faded);
+::selection { background: #c6e82e; color: #16242e; }
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2.5px solid #16242e;
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
-*:hover {
-  cursor: none;
+.skip:focus {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
 }
 
-.cursor-dot,
-.trailing-dot {
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 10;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
 }
 
-.cursor-dot {
-  background-color: var(--electric);
-}
-
-.trailing-dot {
-  background-color: rgba(205, 250, 5, 0.6);
-  transition: transform 0.1s ease-out;
+@media (max-width: 920px) {
+  #grid { grid-template-columns: 1fr !important; }
+  #idpanel {
+    position: static !important;
+    order: -1;
+    border-right: none !important;
+    border-bottom: 1px solid #eceee8;
+    height: auto !important;
+  }
+  #content { padding: 48px 32px !important; }
 }
 
 @theme {
-  --color-electric: var(--electric);
-  --color-electric-faded: var(--electric-faded);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: lighten(var(--current), 20);
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-  .svg-background-fill {
-    fill: #242424;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .svg-background-fill {
-    fill: #fff;
-  }
+  --color-electric: #c6e82e;
+  --color-electric-highlight: #eef7c4;
+  --color-border: #eceee8;
+  --color-muted: #5d6b72;
+  --color-placeholder: #a8b0a0;
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }

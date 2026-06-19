@@ -1,178 +1,297 @@
-import { Fragment, JSX } from "react";
-// Hooks
-import useTypingEffect from "./hooks/typeEffect";
-// Components
-import DottedCursor from "./components/DottedCursor";
+import { JSX } from "react";
 import Experiences from "./components/Experience";
 import Badge from "./components/Badge";
 import MediumFeed from "./components/MediumFeed";
 import Project from "./components/Project";
-import HandUpLottie from "./components/HandUpLottie";
-// Icons
-import { HeartIcon } from "@heroicons/react/24/outline";
-import { ArrowUpRightIcon, EnvelopeIcon } from "@heroicons/react/16/solid";
-import AllUpIcon from "./icons/AllUp";
-// Content
-import { badgeGroups, contentAbout } from "./helpers/contentPage";
 import Footer from "./components/Footer";
-//  Helpers
+import { badgeGroups, contentAbout, contentProjects, contentPlaces } from "./helpers/contentPage";
 import { sanitizeText } from "./helpers/sanitizeText";
 
-const BUILT_WITH = Object.freeze([
-  "Vite",
-  "React",
-  "TypeScript",
-  "Tailwind",
-  "Lottie",
-]);
+const SectionHeader = ({ num, title, id }: { num: string; title: string; id: string }): JSX.Element => (
+  <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 36 }}>
+    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, color: "#a8b0a0" }}>{num}</span>
+    <h2
+      id={id}
+      style={{
+        fontSize: 30,
+        fontWeight: 700,
+        letterSpacing: "-0.02em",
+        margin: 0,
+        position: "relative",
+        paddingBottom: 8,
+        color: "#16242e",
+      }}
+    >
+      {title}
+      <span
+        aria-hidden="true"
+        style={{ position: "absolute", left: 0, bottom: 0, width: 46, height: 4, background: "#c6e82e", borderRadius: 2 }}
+      />
+    </h2>
+  </div>
+);
 
-/**
- * Main application component.
- * @returns {JSX.Element} The rendered component.
- */
 function App(): JSX.Element {
   return (
-    <div className="lg:relative grid grid-cols-1 lg:grid-cols-2 gap-2 w-full lg:w-7xl lg:mx-auto h-screen py-12 px-10 lg:px-10">
-      <DottedCursor />
-      <section>
-        <div className="lg:fixed">
-          <h1 className="font-bold text-5xl lg:text-6xl">
-            {useTypingEffect("Hello, I'm Gize.", 25, 0)} <br />
+    <>
+      <a
+        href="#content"
+        className="skip"
+        style={{
+          position: "fixed",
+          top: 16,
+          left: 16,
+          zIndex: 100,
+          background: "#16242e",
+          color: "#fff",
+          padding: "10px 16px",
+          borderRadius: 7,
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 13,
+          textDecoration: "none",
+          transform: "translateY(-200%)",
+          opacity: 0,
+          transition: "transform .2s, opacity .2s",
+        }}
+      >
+        Skip to content
+      </a>
+
+      <div
+        id="grid"
+        style={{
+          maxWidth: 1340,
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "minmax(380px, 460px) 1fr",
+        }}
+      >
+        {/* IDENTITY PANEL — left, sticky */}
+        <aside
+          id="idpanel"
+          aria-label="About Gize"
+          style={{
+            order: -1,
+            position: "sticky",
+            top: 0,
+            alignSelf: "start",
+            height: "100vh",
+            overflow: "auto",
+            borderRight: "1px solid #eceee8",
+            padding: "72px 48px 56px",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <h1
+            style={{
+              fontWeight: 700,
+              fontSize: "clamp(38px, 3.6vw, 52px)",
+              lineHeight: 0.98,
+              letterSpacing: "-0.03em",
+              margin: 0,
+              color: "#16242e",
+            }}
+          >
+            Hello, I'm Gize
+            <span aria-hidden="true" style={{ color: "#c6e82e" }}>.</span>
           </h1>
-          <h2 className="text-3xl pt-5 lg:text-2xl italic lg:pt-0">
-            Full-Stack Engineer & Coffee lover.
-          </h2>
-          <h3 className="text-2xl/10 pt-10 lg:pt-5 opacity-90 pb-10 lg:text-lg font-mono">
-            Crafting experiences that bring ideas to life.
-          </h3>
-          {badgeGroups.map(({ title, badges }, index) => (
-            <Fragment key={index}>
-              <h4 className="uppercase text-lg lg:text-sm font-bold mb-5">
-                {title}
-              </h4>
-              <div className="pb-5 lg:pb-10 w-full lg:w-[300px]">
-                {badges.map(({ title, link }) => (
-                  <Badge key={title} label={title} link={link} />
-                ))}
-              </div>
-            </Fragment>
-          ))}
-          <h4 className="text-2xl font-bold font-mono mb-5 opacity-90 flex justify-start items-start py-5 flex-col ">
-            <a
-              href="mailTo:gize.bonilla@gmail.com?subject=Let's Connect"
-              className="group hover:opacity-90 block"
-            >
-              Let's connect— <br className="hidden lg:block" />
-              send me an email.
-              <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-50 transition-all duration-500"></span>
-            </a>
-            <EnvelopeIcon className="h-8 lg:h8 fill-electric" />
-          </h4>
-          <div className="text-md font-bold font-mono mb-5 opacity-90 flex justify-start items-start py-5 flex-col">
-            <a
-              href="https://allup.world/user:ec9a5e7f-184f-4fb5-a03d-44f21f8cadcc"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Get to know me better."
-              className="group hover:opacity-90 block mb-5"
-            >
-              Wanna see something cool <br className="hidden lg:block" />
-              and get to know me better?
-              <br className="hidden lg:block" /> — Click here.
-              <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-50 transition-all duration-500"></span>
-            </a>
-            <AllUpIcon />
-          </div>
-        </div>
-      </section>
-      <div className="mb-60">
-        <Footer />
-        <section className="opacity-90 pt-10 lg:pt-30">
-          {contentAbout.map((paragraph, idx) => (
-            <p
-              key={`content-${idx}`}
-              className="py-5 tracking-wide text-lg/10 lg:text-lg"
-              dangerouslySetInnerHTML={{ __html: sanitizeText(paragraph) }}
-            />
-          ))}
-        </section>
-        <section className="pt-10 lg:pt-20">
-          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
-            Experience
-            <span className="w-20 border border-2 border-electric block" />
-          </h2>
-          <Experiences />
-        </section>
-        <section className="pt-10 lg:pt-20">
-          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
-            Projects
-            <span className="w-15 border border-2 border-electric block" />
-          </h2>
-          <Project
-            title="The Hue Creatures Club"
-            description="A metaverse and unique NFT creatures community."
-            image="hue.webp"
-            status="In Progress"
-            badges={["Web3", "React", "TypeScript", "Express", "Colyseus"]}
-            link="http://www.huecreatures.club/"
-          />
-          <Project
-            title="A11yEclipse"
-            description="A sleek and accessible dark theme for VSCode."
-            image="a11y.webp"
-            status="Published"
-            badges={["Yeoman", "VSCode"]}
-            link="https://marketplace.visualstudio.com/items?itemName=GizeBonilla.a11yeclipse"
-          />
-          <Project
-            title="AutoJSDoc CLI"
-            description="CLI tool to automatically generate JSDoc comments."
-            image="autojsdoc.webp"
-            status="Published"
-            badges={["NPM", "JS"]}
-            link="https://www.npmjs.com/package/autojsdoc"
-          />
-        </section>
-        <MediumFeed />
-        <section className="pt-10 lg:pt-20">
-          <h2 className="text-2xl font-bold font-mono mb-5 opacity-90">
-            Places I've Been
-            <span className="w-15 border border-2 border-electric block" />
-          </h2>
-          <ul>
-            <li>
-              <a
-                className="font-mono text-sm flex justify-between group relative"
-                href="https://www.youtube.com/watch?v=FU1zzOjF05s"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div>
-                  <span>La Previa, JSCONF Chile</span>
-                  <span className="block h-0.5 bg-electric max-w-0 group-hover:max-w-full transition-all duration-500"></span>
-                </div>
-                <ArrowUpRightIcon className="h-5 lg:h-6 inline-block fill-electric group-hover:mr-[-5px] lg:absolute lg:right-0" />
-              </a>
-            </li>
-          </ul>
-        </section>
-        <div className="hidden lg:flex space-x-5 py-5 lg:fixed bottom-10 right-10 ">
-          <HandUpLottie />
-        </div>
-        <div className="font-mono text-center lg:text-end py-50 text-sm lg:text-sm">
-          <p>
-            Made with{" "}
-            <HeartIcon className="h-8 lg:h-6 inline-block fill-electric" />{" "}
-            {new Date().getFullYear()}.
+
+          <p
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontStyle: "italic",
+              fontSize: 14,
+              color: "#5d6b72",
+              marginTop: 14,
+              marginBottom: 0,
+            }}
+          >
+            // Full-Stack Engineer &amp; Coffee lover
           </p>
-          <div className="mt-5">
-            {BUILT_WITH.map((badge) => (
-              <Badge key={`build-${badge}`} label={badge} />
+
+          <p
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 13.5,
+              lineHeight: 1.6,
+              color: "#16242e",
+              marginTop: 22,
+              marginBottom: 0,
+              maxWidth: "32ch",
+            }}
+          >
+            Crafting experiences that bring{" "}
+            <span style={{ background: "#eef7c4", padding: "1px 4px", borderRadius: 3 }}>
+              ideas to life
+            </span>.
+          </p>
+
+          <div style={{ marginTop: 26 }}>
+            <Footer />
+          </div>
+
+          <div style={{ marginTop: 38, display: "flex", flexDirection: "column", gap: 26 }}>
+            {badgeGroups.map(({ title, badges }) => (
+              <div key={title}>
+                <p
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 11,
+                    fontWeight: 500,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "#16242e",
+                    margin: "0 0 12px",
+                  }}
+                >
+                  {title}
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                  {badges.map(({ title: label, link }) => (
+                    <Badge key={label} label={label} link={link} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-        </div>
+
+          <div style={{ marginTop: "auto", paddingTop: 48 }}>
+            <a
+              href="mailto:gize.bonilla@gmail.com?subject=Let's Connect"
+              style={{ textDecoration: "none", display: "inline-block" }}
+            >
+              <span
+                style={{
+                  display: "block",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: "clamp(20px, 2vw, 26px)",
+                  fontWeight: 500,
+                  lineHeight: 1.15,
+                  letterSpacing: "-0.02em",
+                  color: "#16242e",
+                }}
+              >
+                Let's connect—<br />send me an email.
+              </span>
+              <span
+                aria-hidden="true"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  marginTop: 18,
+                  padding: "0 16px",
+                  height: 42,
+                  borderRadius: 10,
+                  background: "#c6e82e",
+                  color: "#16242e",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  letterSpacing: "0.04em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Email me <span style={{ fontSize: 16 }}>→</span>
+              </span>
+            </a>
+          </div>
+        </aside>
+
+        {/* CONTENT — right, scrolls */}
+        <main id="content" role="main" style={{ padding: "80px 72px 120px", minWidth: 0 }}>
+
+          {/* // About */}
+          <section aria-labelledby="intro-h" style={{ marginBottom: 96, maxWidth: "62ch" }}>
+            <h2
+              id="intro-h"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "#a8b0a0",
+                margin: "0 0 22px",
+              }}
+            >
+              // About
+            </h2>
+            {contentAbout.map((para, i) => (
+              <p
+                key={i}
+                style={{
+                  fontSize: i === 2 ? 14 : 19,
+                  lineHeight: i === 2 ? 1.6 : 1.62,
+                  letterSpacing: "-0.01em",
+                  color: i === 0 ? "#16242e" : i === 1 ? "#3a474e" : "#5d6b72",
+                  fontFamily: i === 2 ? "'JetBrains Mono', monospace" : undefined,
+                  margin: "0 0 18px",
+                }}
+                dangerouslySetInnerHTML={{ __html: sanitizeText(para) }}
+              />
+            ))}
+          </section>
+
+          {/* 01 Experience */}
+          <section aria-labelledby="exp-h" style={{ marginBottom: 96 }}>
+            <SectionHeader num="01" title="Experience" id="exp-h" />
+            <Experiences />
+          </section>
+
+          {/* 02 Projects */}
+          <section aria-labelledby="proj-h" style={{ marginBottom: 96 }}>
+            <SectionHeader num="02" title="Projects" id="proj-h" />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+              {contentProjects.map((p) => (
+                <Project key={p.title} {...p} />
+              ))}
+            </div>
+          </section>
+
+          {/* 03 Writing */}
+          <MediumFeed />
+
+          {/* 04 Elsewhere */}
+          <section aria-labelledby="else-h" style={{ marginBottom: 96 }}>
+            <SectionHeader num="04" title="Elsewhere" id="else-h" />
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 2 }}>
+              {contentPlaces.map(({ label, kind, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      textDecoration: "none",
+                      display: "flex",
+                      alignItems: "baseline",
+                      gap: 14,
+                      padding: "12px 6px",
+                      fontFamily: "'JetBrains Mono', monospace",
+                      borderRadius: 8,
+                      transition: "background .16s",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = "#f8faf2";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = "";
+                    }}
+                  >
+                    <span style={{ flex: 1, fontSize: 15, color: "#16242e" }}>{label}</span>
+                    <span style={{ fontSize: 12, color: "#5d6b72" }}>{kind}</span>
+                    <span aria-hidden="true" style={{ color: "#c6e82e" }}>↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+        </main>
       </div>
-    </div>
+    </>
   );
 }
 

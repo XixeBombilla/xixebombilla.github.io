@@ -1,37 +1,20 @@
-import GithubIcon from "../icons/Github";
-import InstagramIcon from "../icons/Instagram";
-import LinkedinIcon from "../icons/Linkedin";
-import XIcon from "../icons/X";
-import MediumIcon from "../icons/Medium";
-//  Content
+import { JSX } from "react";
 import { contentFooter } from "../helpers/contentPage";
-import { createElement, JSX } from "react";
 
-const Icons = {
-  github: GithubIcon,
-  linkedin: LinkedinIcon,
-  instagram: InstagramIcon,
-  x: XIcon,
-  medium: MediumIcon,
-};
-
-/**
- * Footer component that renders a navigation bar with social media icons.
- * @returns {JSX.Element} The rendered component.
- */
 const Footer = (): JSX.Element => {
   return (
-    <nav className="flex justify-center lg:justify-end space-x-5 py-5 h-20 lg:10 lg:pt-10">
+    <nav aria-label="Social links" className="flex flex-wrap gap-x-4 gap-y-2">
       {contentFooter.map(({ key, link, label }) => (
         <a
-          key={`footer-${label}`}
+          key={key}
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="h-16 w-16 dark:fill-white lg:h-8 lg:w-8 mx-5 lg:ml-2"
           aria-label={label}
+          className="font-mono text-[13px] text-[#5d6b72] inline-flex items-center gap-[3px] border-b border-transparent pb-px hover:text-[#16242e] hover:border-electric transition-colors"
         >
-          {createElement(Icons[key])}
+          {key.charAt(0).toUpperCase() + key.slice(1)}
+          <span aria-hidden="true" className="text-[10px]">↗</span>
         </a>
       ))}
     </nav>
