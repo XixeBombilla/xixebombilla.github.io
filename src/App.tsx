@@ -1,5 +1,4 @@
 import { Fragment, JSX } from "react";
-import Lottie from "lottie-react";
 // Hooks
 import useTypingEffect from "./hooks/typeEffect";
 // Components
@@ -8,15 +7,14 @@ import Experiences from "./components/Experience";
 import Badge from "./components/Badge";
 import MediumFeed from "./components/MediumFeed";
 import Project from "./components/Project";
+import HandUpLottie from "./components/HandUpLottie";
 // Icons
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { ArrowUpRightIcon, EnvelopeIcon } from "@heroicons/react/16/solid";
 import AllUpIcon from "./icons/AllUp";
-// Animations
-import animationHandUp from "./assets/handup.json";
-import Footer from "./components/Footer";
 // Content
 import { badgeGroups, contentAbout } from "./helpers/contentPage";
+import Footer from "./components/Footer";
 //  Helpers
 import { sanitizeText } from "./helpers/sanitizeText";
 
@@ -159,11 +157,7 @@ function App(): JSX.Element {
           </ul>
         </section>
         <div className="hidden lg:flex space-x-5 py-5 lg:fixed bottom-10 right-10 ">
-          <Lottie
-            animationData={animationHandUp}
-            loop={true}
-            className="w-20"
-          />
+          <HandUpLottie />
         </div>
         <div className="font-mono text-center lg:text-end py-50 text-sm lg:text-sm">
           <p>

@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
  * @returns {string} The text with typing effect.
  */
 const useTypeEffect = (text: string, delay: number, wait: number): string => {
+  const isSSR = typeof window === "undefined";
   const [index, setIndex] = useState<number>(0);
   const [displayedText, setDisplayedText] = useState<string[]>([]);
   const [waitAnimation, setWaitAnimation] = useState<boolean>(true);
@@ -31,6 +32,8 @@ const useTypeEffect = (text: string, delay: number, wait: number): string => {
 
     return () => clearTimeout(timeoutId);
   }, [index, waitAnimation, delay, displayedText, text]);
+
+  if (isSSR) return text;
 
   return displayedText.join("");
 };
