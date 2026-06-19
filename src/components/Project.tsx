@@ -6,7 +6,7 @@ interface ProjectProps {
   description: string;
   badges: string[];
   status: string;
-  link: string;
+  link?: string;
   tint?: string;
 }
 
@@ -24,7 +24,7 @@ const Project = ({
 }: ProjectProps): JSX.Element => {
   return (
     <a
-      href={link}
+      href={link ?? "#"}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={title}
